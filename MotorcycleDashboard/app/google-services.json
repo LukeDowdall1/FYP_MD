@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "504428038958",
+    "project_id": "motorcycle-dashboard",
+    "storage_bucket": "motorcycle-dashboard.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504428038958:android:7e4ace3ef982cc965288bf",
+        "android_client_info": {
+          "package_name": "com.example.motorcycledashboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504428038958-j6sb13aj58dc5na18rpgaam0kdk4t78m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZYeOJ2xXFb84EQky_O0rTRAT3XzOSpMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504428038958-j6sb13aj58dc5na18rpgaam0kdk4t78m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
