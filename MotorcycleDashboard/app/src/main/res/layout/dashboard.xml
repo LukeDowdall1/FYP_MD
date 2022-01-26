@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.502" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/speed"
         android:layout_width="300dp"
         android:layout_height="300dp"
 
@@ -128,4 +128,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.828" />
+
+    <androidx.appcompat.widget.SwitchCompat
+xs        android:id="@+id/switch_metric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change units"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="606dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
