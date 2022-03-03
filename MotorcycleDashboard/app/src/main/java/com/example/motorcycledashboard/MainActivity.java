@@ -20,7 +20,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Formatter;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
@@ -28,8 +31,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     Switch switch_metric;
     TextView TV_speed;
     TextView TV_TopSpeed;
+    TextView TV_AvgSpeed;
 
     public float TopSpeed = 0;
+    public List<Float> AvgSpeedList = new ArrayList<>();
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         TV_speed = findViewById(R.id.TV_speed);
         TV_TopSpeed = findViewById(R.id.TV_TopSpeed);
+        TV_AvgSpeed = findViewById(R.id.TV_AvgSpeed);
 
         switch_metric = findViewById(R.id.switch_metric);
 
@@ -125,14 +132,24 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         fmt2.format(Locale.US, "%5.0f", TopSpeed);
         String strTopSpeed = fmt2.toString();
 
-        if (nCurrentSpeed >= TopSpeed) {
-            Log.d("Top Speed",strTopSpeed);
-            Log.d("Current Speed",strCurrentSpeed);
 
+
+        if (nCurrentSpeed > TopSpeed) {
             strTopSpeed = strCurrentSpeed;
             TopSpeed = nCurrentSpeed;
             TV_TopSpeed.setText("Top speed: " + strTopSpeed + " km/h");
         }
+
+        if (nCurrentSpeed > 0) {
+            AvgSpeedList.add(nCurrentSpeed);
+            Double average = AvgSpeedList.stream().mapToDouble(val -> val).average().orElse(0.0);
+            Formatter fmt3 = new Formatter(new StringBuilder());
+            fmt3.format(Locale.US, "%5.0f", average);
+            String strAverage = fmt3.toString();
+            TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
+        }
+
+
 
         if (this.useMetricUnits()) {
 
