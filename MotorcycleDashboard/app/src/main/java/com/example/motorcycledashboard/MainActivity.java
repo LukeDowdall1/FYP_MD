@@ -13,6 +13,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     Switch switch_metric;
     TextView TV_speed;
+    TextView TV_TopSpeed;
+
+    public float TopSpeed = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         setContentView(R.layout.dashboard);
 
         TV_speed = findViewById(R.id.TV_speed);
+        TV_TopSpeed = findViewById(R.id.TV_TopSpeed);
 
         switch_metric = findViewById(R.id.switch_metric);
 
@@ -101,21 +107,39 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private void updateSpeed(LocMain location) {
         float nCurrentSpeed = 0;
 
+
         if(location != null){
             location.setMetricUnits(this.useMetricUnits());
             nCurrentSpeed = location.getSpeed();
+            nCurrentSpeed = Math.round(nCurrentSpeed);
         }
+
+
 
         Formatter fmt = new Formatter(new StringBuilder());
-        fmt.format(Locale.US, "%5.1f", nCurrentSpeed);
+        fmt.format(Locale.US, "%5.0f", nCurrentSpeed);
         String strCurrentSpeed = fmt.toString();
-        strCurrentSpeed = strCurrentSpeed.replace(" ", "0");
+//        strCurrentSpeed = strCurrentSpeed.replace(" ", "0");
+
+        Formatter fmt2 = new Formatter(new StringBuilder());
+        fmt2.format(Locale.US, "%5.0f", TopSpeed);
+        String strTopSpeed = fmt2.toString();
+
+        if (nCurrentSpeed >= TopSpeed) {
+            Log.d("Top Speed",strTopSpeed);
+            Log.d("Current Speed",strCurrentSpeed);
+
+            strTopSpeed = strCurrentSpeed;
+            TopSpeed = nCurrentSpeed;
+            TV_TopSpeed.setText("Top speed: " + strTopSpeed + " km/h");
+        }
 
         if (this.useMetricUnits()) {
-            TV_speed.setText(strCurrentSpeed + "km/h");
+
+            TV_speed.setText(strCurrentSpeed + " \nkm/h");
         }
         else {
-            TV_speed.setText(strCurrentSpeed + "mph");
+            TV_speed.setText(strCurrentSpeed + " \nmph");
         }
     }
 

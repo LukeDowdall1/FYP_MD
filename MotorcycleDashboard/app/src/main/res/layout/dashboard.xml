@@ -27,8 +27,8 @@
 
     <TextView
         android:id="@+id/speed"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="276dp"
+        android:layout_height="266dp"
 
         android:background="@drawable/testing"
         android:paddingTop="220dp"
@@ -47,13 +47,13 @@
 
     <TextView
         android:id="@+id/TV_speed"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="276dp"
+        android:layout_height="267dp"
 
         android:gravity="center"
-        android:text="0"
+        android:text="0 \nkm/h"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="60dp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +81,7 @@
         app:layout_constraintVertical_bias="0.551" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/TV_TopSpeed"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:text="Top speed:"
