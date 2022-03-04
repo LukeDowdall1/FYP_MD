@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -35,12 +36,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     public float TopSpeed = 0;
     public List<Float> AvgSpeedList = new ArrayList<>();
+    public String strAverage;
     
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         TV_speed = findViewById(R.id.TV_speed);
         TV_TopSpeed = findViewById(R.id.TV_TopSpeed);
@@ -65,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             }
         });
     }
+
+
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
@@ -145,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             Double average = AvgSpeedList.stream().mapToDouble(val -> val).average().orElse(0.0);
             Formatter fmt3 = new Formatter(new StringBuilder());
             fmt3.format(Locale.US, "%5.0f", average);
-            String strAverage = fmt3.toString();
+            strAverage = fmt3.toString();
             TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
         }
 
@@ -162,5 +167,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private boolean useMetricUnits() {
         return switch_metric.isChecked();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putFloat("float_value", TopSpeed);
+        outState.putString("string_value", strAverage);
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        TopSpeed = savedInstanceState.getFloat("float_value");
+        strAverage = savedInstanceState.getString("string_value");
+
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
