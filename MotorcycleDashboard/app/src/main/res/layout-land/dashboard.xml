@@ -72,6 +72,7 @@
         app:layout_constraintVertical_bias="0.498" />
 
     <TextView
+        android:id="@+id/TV_LeanAngle"
         android:layout_width="300dp"
         android:layout_height="50dp"
 
@@ -106,7 +107,7 @@
         app:layout_constraintVertical_bias="0.172" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_width="94dp"
         android:layout_height="94dp"
         android:backgroundTint="@color/white"

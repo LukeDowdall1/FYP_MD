@@ -15,7 +15,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -27,32 +29,51 @@ import java.util.Formatter;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements LocationListener {
+public class MainActivity extends AppCompatActivity implements LocationListener, View.OnClickListener {
 
     Switch switch_metric;
     TextView TV_speed;
     TextView TV_TopSpeed;
     TextView TV_AvgSpeed;
+    TextView TV_LeanAngle;
+    Button button1;
+    Button button2;
 
     public float TopSpeed = 0;
     public List<Float> AvgSpeedList = new ArrayList<>();
     public String strAverage;
+    public int Num = 0;
     
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         TV_speed = findViewById(R.id.TV_speed);
         TV_TopSpeed = findViewById(R.id.TV_TopSpeed);
         TV_AvgSpeed = findViewById(R.id.TV_AvgSpeed);
+        TV_LeanAngle = findViewById(R.id.TV_LeanAngle);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
 
         switch_metric = findViewById(R.id.switch_metric);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
+        TV_TopSpeed.setText("Top speed: " + TopSpeed + " km/h");
+        if (strAverage == null){
+            TV_AvgSpeed.setText("Avg. speed: " + "0" + " km/h");
+        }
+        else {
+            TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
+        }
+
+
+
+        if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
         }
         else {
@@ -67,6 +88,20 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 MainActivity.this.updateSpeed(null);
             }
         });
+
+
+    }
+
+
+
+    public void onClick(View v) {
+        if (v == button1) {
+            TopSpeed++;
+            TV_LeanAngle.setText("Num: " + TopSpeed);
+        }
+        if (v == button2) {
+            TV_LeanAngle.setText("Num: " + strAverage);
+        }
     }
 
 
@@ -170,18 +205,22 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putFloat("float_value", TopSpeed);
         outState.putString("string_value", strAverage);
+        outState.putInt("int_value", Num);
 
-        super.onSaveInstanceState(outState);
+
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
         TopSpeed = savedInstanceState.getFloat("float_value");
         strAverage = savedInstanceState.getString("string_value");
+        Num = savedInstanceState.getInt("int_value");
 
-        super.onRestoreInstanceState(savedInstanceState);
+
     }
 }

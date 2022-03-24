@@ -1,0 +1,377 @@
+[7938][      debug] Loading models took 33.731ms
+[7941][      debug] Sqlite write daemon: starting up
+[7941][      debug] Sqlite write daemon: set up complete, waiting for connections
+[7938][environment] CWD = /Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard
+[7938][environment] No .inferconfig file found
+[7938][environment] Project root = /Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard
+[7938][environment] INFER_ARGS =   @/var/folders/5t/41sl8b8j42nd__wvkj7njfqh0000gn/T/args.tmp.60b57e
+[7938][environment] command line arguments:   infer run -- javac MainActivity.java
+[7938][environment] Could not retrieve available memory (possibly not on Linux)
+[7938][environment] Active checkers: self-in-block (C/C++/ObjC), starvation (C/C++/ObjC, Java), uninit (C/C++/ObjC), siof (C/C++/ObjC), dotnet-resource-leak (C#/.Net), racerd (C/C++/ObjC, Java), liveness (C/C++/ObjC), inefficient-keyset-iterator (Java), fragment-retains-view (Java), biabduction (C/C++/ObjC, Java, C#/.Net)
+[7938][environment] Scheduler: file
+[7938][environment] Cores used: 6
+[7938][environment] Infer version v1.1.0
+[7938][environment] Copyright 2009 - present Facebook. All Rights Reserved.
+[7938][environment] 
+[7938][   progress] Capturing in javac mode...
+[7938][      debug] Current working directory: '/Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard'
+[7938][      debug] Trying to execute: javac '-J-Duser.language=en' '@/Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard/infer-out/tmp/javac_args.tmp.7031a9' 2>'/Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard/infer-out/tmp/javac.tmp.3be83f.out'
+[7938][      debug] *** Failed: exited with code 1!
+[7938][      debug] 
+[7938][      debug] Trying to execute: javac '@/Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard/infer-out/tmp/javac_args.tmp.7031a9' 2>'/Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard/infer-out/tmp/javac.tmp.3be83f.out'
+[7938][   user err] 
+*** Failed to execute compilation command: exited with code 1
+*** Command: javac '@/Users/lukedowdall/Desktop/4thYear/FYP/FYP_MD/MotorcycleDashboard/app/src/main/java/com/example/motorcycledashboard/infer-out/tmp/javac_args.tmp.7031a9'
+*** Output:
+[parsing started RegularFileObject[MainActivity.java]]
+[parsing completed 17ms]
+[search path for source files: .]
+[search path for class files: /Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/resources.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/rt.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/sunrsasign.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/jsse.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/jce.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/charsets.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/jfr.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/classes,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/sunec.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/nashorn.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/cldrdata.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/jfxrt.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/dnsns.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/localedata.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/jaccess.jar,/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/jre/lib/ext/zipfs.jar,.]
+MainActivity.java:3: error: package androidx.annotation does not exist
+import androidx.annotation.NonNull;
+                          ^
+MainActivity.java:4: error: package androidx.appcompat.app does not exist
+import androidx.appcompat.app.AppCompatActivity;
+                             ^
+MainActivity.java:5: error: package androidx.appcompat.widget does not exist
+import androidx.appcompat.widget.SwitchCompat;
+                                ^
+MainActivity.java:7: error: package android does not exist
+import android.Manifest;
+              ^
+MainActivity.java:8: error: package android.annotation does not exist
+import android.annotation.SuppressLint;
+                         ^
+MainActivity.java:9: error: package android.content does not exist
+import android.content.Context;
+                      ^
+MainActivity.java:10: error: package android.content.pm does not exist
+import android.content.pm.PackageManager;
+                         ^
+MainActivity.java:11: error: package android.location does not exist
+import android.location.Location;
+                       ^
+MainActivity.java:12: error: package android.location does not exist
+import android.location.LocationListener;
+                       ^
+MainActivity.java:13: error: package android.location does not exist
+import android.location.LocationManager;
+                       ^
+MainActivity.java:14: error: package android.os does not exist
+import android.os.Build;
+                 ^
+MainActivity.java:15: error: package android.os does not exist
+import android.os.Bundle;
+                 ^
+MainActivity.java:16: error: package android.os does not exist
+import android.os.Debug;
+                 ^
+MainActivity.java:17: error: package android.util does not exist
+import android.util.Log;
+                   ^
+MainActivity.java:18: error: package android.view does not exist
+import android.view.WindowManager;
+                   ^
+MainActivity.java:19: error: package android.widget does not exist
+import android.widget.CompoundButton;
+                     ^
+MainActivity.java:20: error: package android.widget does not exist
+import android.widget.Switch;
+                     ^
+MainActivity.java:21: error: package android.widget does not exist
+import android.widget.TextView;
+                     ^
+MainActivity.java:22: error: package android.widget does not exist
+import android.widget.Toast;
+                     ^
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/Formatter.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class)]]
+MainActivity.java:30: error: cannot find symbol
+public class MainActivity extends AppCompatActivity implements LocationListener {
+                                  ^
+  symbol: class AppCompatActivity
+MainActivity.java:30: error: cannot find symbol
+public class MainActivity extends AppCompatActivity implements LocationListener {
+                                                               ^
+  symbol: class LocationListener
+MainActivity.java:32: error: cannot find symbol
+    Switch switch_metric;
+    ^
+  symbol:   class Switch
+  location: class MainActivity
+MainActivity.java:33: error: cannot find symbol
+    TextView TV_speed;
+    ^
+  symbol:   class TextView
+  location: class MainActivity
+MainActivity.java:34: error: cannot find symbol
+    TextView TV_TopSpeed;
+    ^
+  symbol:   class TextView
+  location: class MainActivity
+MainActivity.java:35: error: cannot find symbol
+    TextView TV_AvgSpeed;
+    ^
+  symbol:   class TextView
+  location: class MainActivity
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Float.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class)]]
+MainActivity.java:43: error: cannot find symbol
+    protected void onCreate(Bundle savedInstanceState) {
+                            ^
+  symbol:   class Bundle
+  location: class MainActivity
+MainActivity.java:75: error: cannot find symbol
+    public void onLocationChanged(@NonNull Location location) {
+                                           ^
+  symbol:   class Location
+  location: class MainActivity
+MainActivity.java:83: error: cannot find symbol
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+                                                             ^
+  symbol:   class Bundle
+  location: class MainActivity
+MainActivity.java:119: error: cannot find symbol
+    private void updateSpeed(LocMain location) {
+                             ^
+  symbol:   class LocMain
+  location: class MainActivity
+MainActivity.java:173: error: cannot find symbol
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+                                                ^
+  symbol:   class Bundle
+  location: class MainActivity
+MainActivity.java:181: error: cannot find symbol
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+                                                   ^
+  symbol:   class Bundle
+  location: class MainActivity
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Override.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class)]]
+MainActivity.java:75: error: cannot find symbol
+    public void onLocationChanged(@NonNull Location location) {
+                                   ^
+  symbol:   class NonNull
+  location: class MainActivity
+MainActivity.java:88: error: cannot find symbol
+    public void onProviderEnabled(@NonNull String provider) {
+                                   ^
+  symbol:   class NonNull
+  location: class MainActivity
+MainActivity.java:93: error: cannot find symbol
+    public void onProviderDisabled(@NonNull String provider) {
+                                    ^
+  symbol:   class NonNull
+  location: class MainActivity
+MainActivity.java:99: error: cannot find symbol
+    @SuppressLint("MissingPermission")
+     ^
+  symbol:   class SuppressLint
+  location: class MainActivity
+MainActivity.java:109: error: cannot find symbol
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+                                                             ^
+  symbol:   class NonNull
+  location: class MainActivity
+MainActivity.java:109: error: cannot find symbol
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+                                                                                            ^
+  symbol:   class NonNull
+  location: class MainActivity
+MainActivity.java:173: error: cannot find symbol
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+                                        ^
+  symbol:   class NonNull
+  location: class MainActivity
+MainActivity.java:181: error: cannot find symbol
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+                                           ^
+  symbol:   class NonNull
+  location: class MainActivity
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Target.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/RetentionPolicy.class)]]
+[checking com.example.motorcycledashboard.MainActivity]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractList.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class)]]
+MainActivity.java:42: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:44: error: cannot find symbol
+        super.onCreate(savedInstanceState);
+        ^
+  symbol:   variable super
+  location: class MainActivity
+MainActivity.java:45: error: package R does not exist
+        setContentView(R.layout.dashboard);
+                        ^
+MainActivity.java:46: error: package WindowManager does not exist
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                                          ^
+MainActivity.java:46: error: cannot find symbol
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        ^
+  symbol:   method getWindow()
+  location: class MainActivity
+MainActivity.java:48: error: package R does not exist
+        TV_speed = findViewById(R.id.TV_speed);
+                                 ^
+MainActivity.java:49: error: package R does not exist
+        TV_TopSpeed = findViewById(R.id.TV_TopSpeed);
+                                    ^
+MainActivity.java:50: error: package R does not exist
+        TV_AvgSpeed = findViewById(R.id.TV_AvgSpeed);
+                                    ^
+MainActivity.java:52: error: package R does not exist
+        switch_metric = findViewById(R.id.switch_metric);
+                                      ^
+MainActivity.java:54: error: package Build does not exist
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                ^
+MainActivity.java:54: error: package Build does not exist
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                                         ^
+MainActivity.java:54: error: package Manifest does not exist
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                                                                                         ^
+MainActivity.java:55: error: cannot find symbol
+                != PackageManager.PERMISSION_GRANTED) {
+                   ^
+  symbol:   variable PackageManager
+  location: class MainActivity
+MainActivity.java:56: error: package Manifest does not exist
+            requestPermissions(new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
+                                                     ^
+MainActivity.java:56: error: cannot find symbol
+            requestPermissions(new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
+            ^
+  symbol:   method requestPermissions(String[],int)
+  location: class MainActivity
+MainActivity.java:64: error: package CompoundButton does not exist
+        switch_metric.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                                                   ^
+MainActivity.java:74: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:77: error: cannot find symbol
+            LocMain myLocation = new LocMain(location, this.useMetricUnits());
+            ^
+  symbol:   class LocMain
+  location: class MainActivity
+MainActivity.java:77: error: cannot find symbol
+            LocMain myLocation = new LocMain(location, this.useMetricUnits());
+                                     ^
+  symbol:   class LocMain
+  location: class MainActivity
+MainActivity.java:82: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:87: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:92: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:101: error: cannot find symbol
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        ^
+  symbol:   class LocationManager
+  location: class MainActivity
+MainActivity.java:101: error: cannot find symbol
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+                                           ^
+  symbol:   class LocationManager
+  location: class MainActivity
+MainActivity.java:101: error: cannot find symbol
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+                                                                                  ^
+  symbol:   variable Context
+  location: class MainActivity
+MainActivity.java:103: error: cannot find symbol
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0, 0, this);
+                                                   ^
+  symbol:   variable LocationManager
+  location: class MainActivity
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Byte.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Character.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Short.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Long.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Boolean.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Void.class)]]
+MainActivity.java:105: error: cannot find symbol
+        Toast.makeText(this, "Connecting GPS...", Toast.LENGTH_SHORT).show();
+                                                  ^
+  symbol:   variable Toast
+  location: class MainActivity
+MainActivity.java:105: error: cannot find symbol
+        Toast.makeText(this, "Connecting GPS...", Toast.LENGTH_SHORT).show();
+        ^
+  symbol:   variable Toast
+  location: class MainActivity
+MainActivity.java:108: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:110: error: cannot find symbol
+        if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                              ^
+  symbol:   variable PackageManager
+  location: class MainActivity
+MainActivity.java:114: error: cannot find symbol
+            finish();
+            ^
+  symbol:   method finish()
+  location: class MainActivity
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/StringBuilder.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AbstractStringBuilder.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/io/OutputStream.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Appendable.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/io/Closeable.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/io/Flushable.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/stream/Stream.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/function/ToDoubleFunction.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/stream/BaseStream.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/stream/DoubleStream.class)]]
+[loading ZipFileIndexFileObject[/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home/lib/ct.sym(META-INF/sym/rt.jar/java/util/OptionalDouble.class)]]
+MainActivity.java:172: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:177: error: cannot find symbol
+        super.onSaveInstanceState(outState);
+        ^
+  symbol:   variable super
+  location: class MainActivity
+MainActivity.java:180: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+MainActivity.java:185: error: cannot find symbol
+        super.onRestoreInstanceState(savedInstanceState);
+        ^
+  symbol:   variable super
+  location: class MainActivity
+[total 186ms]
+74 errors
+
+*** Infer needs a working compilation command to run.
+
+[7938][   user err] Raised at Stdlib__buffer.add_channel in file "buffer.ml", line 273, characters 18-35
+Called from Stdio__In_channel.input_all.loop in file "src/in_channel.ml", line 44, characters 4-47
+Called from Stdio__In_channel.input_all in file "src/in_channel.ml", line 47, characters 6-13
+
+[7941][      debug] Sqlite write daemon: terminating
