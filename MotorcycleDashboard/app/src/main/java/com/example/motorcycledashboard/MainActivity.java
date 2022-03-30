@@ -7,6 +7,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     Button button1;
     Button button2;
 
-    public float TopSpeed = 0;
+
+
+    public float TopSpeed;
     public List<Float> AvgSpeedList = new ArrayList<>();
     public String strAverage;
     public int Num = 0;
@@ -64,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         switch_metric = findViewById(R.id.switch_metric);
 
         TV_TopSpeed.setText("Top speed: " + TopSpeed + " km/h");
+
+
         if (strAverage == null){
             TV_AvgSpeed.setText("Avg. speed: " + "0" + " km/h");
         }
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
         }
 
+        Log.i("On", "Create: ");
 
 
         if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -100,7 +106,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             TV_LeanAngle.setText("Num: " + TopSpeed);
         }
         if (v == button2) {
-            TV_LeanAngle.setText("Num: " + strAverage);
+//            Intent intent = new Intent(MainActivity.this, Map.class);
+//            startActivity(intent);
+//            setContentView(R.layout.mainmap);
         }
     }
 
@@ -210,6 +218,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         outState.putFloat("float_value", TopSpeed);
         outState.putString("string_value", strAverage);
         outState.putInt("int_value", Num);
+        Log.i("Save", "Speed: " + TopSpeed);
 
 
     }
@@ -220,7 +229,17 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         TopSpeed = savedInstanceState.getFloat("float_value");
         strAverage = savedInstanceState.getString("string_value");
         Num = savedInstanceState.getInt("int_value");
+        Log.i("Save", "Avg: " + strAverage);
 
+        TV_TopSpeed.setText("Top speed: " + TopSpeed + " km/h");
+
+
+        if (strAverage == null){
+            TV_AvgSpeed.setText("Avg. speed: " + "0" + " km/h");
+        }
+        else {
+            TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
+        }
 
     }
 }

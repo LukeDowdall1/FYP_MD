@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Motorcycle Dashboard</string>
+    <string name="MDMaps_API_key">AIzaSyDXYNn21o3qjQSCS6ggpmNHa6Evsb9gt20</string>
 </resources>
