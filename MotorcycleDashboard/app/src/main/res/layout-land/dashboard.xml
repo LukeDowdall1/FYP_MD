@@ -18,6 +18,18 @@
 <!--        tools:ignore="MissingConstraints"-->
 <!--        tools:layout_editor_absoluteY="701dp" />-->
 
+
+    <ImageView
+        android:id="@+id/settingsimg"
+        android:layout_width="62dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="360dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/whitesettings" />
+
     <TextView
         android:id="@+id/TV_speed"
         android:layout_width="275dp"
@@ -203,4 +215,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.527" />
+
+    <TextView
+        android:id="@+id/settings"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

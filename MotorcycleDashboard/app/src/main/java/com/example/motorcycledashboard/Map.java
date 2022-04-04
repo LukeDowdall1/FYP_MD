@@ -32,12 +32,15 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
+import javax.microedition.khronos.opengles.GL;
+
 public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final String TAG = "Map";
 
     private MarkerOptions options = new MarkerOptions();
     private ArrayList<LatLng> latlngs = new ArrayList<>();
+    private ArrayList<String> Desc = MainActivity.GlDesc;
 
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -62,6 +65,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap googleMap) {
         Toast.makeText(this, "Map loaded", Toast.LENGTH_SHORT).show();
         mMap = googleMap;
+        int i = 0;
 
         if (mLocPermissionGranted) {
             GetDeviceLoc();
@@ -82,16 +86,24 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 //        m1.setTag(0);
 
 
-        for (LatLng point : MainActivity.myObjects) {
-            options.position(point);
-            options.title("someTitle");
+//        for (LatLng point : MainActivity.GlPointers) {
+//            options.position(point);
+//            options.title(Desc.get(i));
+//            options.snippet("someDesc");
+//            mMap.addMarker(options);
+//        }
+
+        for (int j=0; j<MainActivity.GlPointers.size(); j++) {
+            options.position(MainActivity.GlPointers.get(j));
+            options.title(MainActivity.GlDesc.get(j));
             options.snippet("someDesc");
             mMap.addMarker(options);
+            Log.i(TAG, "onMapReady: " + MainActivity.GlDesc.get(j) + "....");
         }
 
-        Log.i(TAG, "onMapReady: " + MainActivity.myObjects.get(1) + "....");
 
 
+//        Log.i(TAG, "onMapReady: " + MainActivity.GlPointers.get(1) + "....");
     }
 
 
