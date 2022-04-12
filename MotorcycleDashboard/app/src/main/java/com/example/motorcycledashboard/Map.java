@@ -59,13 +59,14 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
         getLocPermissions();
 
+
+
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         Toast.makeText(this, "Map loaded", Toast.LENGTH_SHORT).show();
         mMap = googleMap;
-        int i = 0;
 
         if (mLocPermissionGranted) {
             GetDeviceLoc();
@@ -76,22 +77,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
         }
-
-//                Marker m1 = mMap.addMarker(new MarkerOptions()
-//                .position(new LatLng(53.353946, -6.252994))
-//                .anchor(0.5f, 0.5f)
-//                .title("Title1")
-//                .snippet("Snippet1")
-//        );
-//        m1.setTag(0);
-
-
-//        for (LatLng point : MainActivity.GlPointers) {
-//            options.position(point);
-//            options.title(Desc.get(i));
-//            options.snippet("someDesc");
-//            mMap.addMarker(options);
-//        }
 
         for (int j=0; j<MainActivity.GlPointers.size(); j++) {
             options.position(MainActivity.GlPointers.get(j));

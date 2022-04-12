@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     public static ArrayList<LatLng> GlPointers = new ArrayList<>();
     public static ArrayList<String> GlDesc = new ArrayList<>();
+    public static Boolean ML_Mode;
+
+
 
     private int mAzimuth = 0; // degree
 
@@ -68,29 +71,19 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     public float LeanAngle;
     public int MaxLeanL = 0;
     public int MaxLeanR = 0;
-    public int Num = 0;
-    public int counter = 0;
+    public int DistBetweenMarkers = 50;
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private Sensor mMagnetometer;
 
-    private float[] mLastAccelerometer = new float[3];
-    private float[] mLastMagnetometer = new float[3];
     private boolean mLastAccelerometerSet = false;
     private boolean mLastMagnetometerSet = false;
-
-    private float[] mR = new float[9];
-    private float[] mOrientation = new float[3];
-
-    private MarkerOptions options = new MarkerOptions();
-    private ArrayList<LatLng> latlngs = new ArrayList<>();
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        findViewById(R.id.MColor) = "#3A3A3A";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
 
@@ -112,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
 
 
+
+
         switch_metric = findViewById(R.id.switch_metric);
 
         TV_TopSpeed.setText("Top speed: " + TopSpeed + " km/h");
@@ -119,9 +114,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
 
         if (strAverage == null) {
-            TV_AvgSpeed.setText("Avg. speed: " + "0" + " km/h");
+            TV_AvgSpeed.setText("Avg speed: " + "0" + " km/h");
         } else {
-            TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
+            TV_AvgSpeed.setText("Avg speed: " + strAverage + " km/h");
         }
 
         Log.i("On", "Create: ");
@@ -141,6 +136,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+
+
 
     }
 
@@ -211,6 +208,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     }
 
 
+    public int temp1 = 0;
     private void updateSpeed(LocMain location) {
         float nCurrentSpeed = 0;
 
@@ -245,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             Formatter fmt4 = new Formatter(new StringBuilder());
             fmt4.format(Locale.US, "%5.0f", average);
             strAverage = fmt4.toString();
-            TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
+            TV_AvgSpeed.setText("Avg speed: " + strAverage + " km/h");
         }
 
 
@@ -253,14 +251,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             TV_speed.setText(strCurrentSpeed + " \nkm/h");
         }
         else {
-            TV_speed.setText(strCurrentSpeed + " \nmp/h");
+            TV_speed.setText(strCurrentSpeed + " \nkm/h");
         }
 
 
-        GlPointers.add(new LatLng(53.353946, -6.252994));
-        GlPointers.add(new LatLng(53.353946, -6.252996));
-        GlDesc.add("Speed: " + strCurrentSpeed + ", Lean Angle:" + LeanAngle);
-        GlDesc.add("Speed: " + strCurrentSpeed + ", Lean Angle:" + LeanAngle);
+        if (temp1 == 0) {
+            GlPointers.add(new LatLng(location.getLatitude(), location.getLongitude()));
+            GlPointers.add(new LatLng(location.getLatitude(), location.getLongitude()));
+            GlDesc.add("Speed:, Lean Angle:" + LeanAngle);
+            GlDesc.add("Speed:, Lean Angle:" + LeanAngle);
+            temp1++;
+        }
+
 
         Location startP = new Location("locationA");
         startP.setLatitude((GlPointers.get(GlPointers.size() - 1).latitude));
@@ -269,10 +271,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         endP.setLatitude(location.getLatitude());
         endP.setLongitude(location.getLongitude());
 
-        if (startP.distanceTo(endP) > 50) {
+        if (startP.distanceTo(endP) > DistBetweenMarkers) {
             GlPointers.add(new LatLng(location.getLatitude(), location.getLongitude()));
             GlDesc.add("Speed: " + strCurrentSpeed + ", Lean Angle:" + LeanAngle);
+            startP.setLatitude((GlPointers.get(GlPointers.size() - 1).latitude));
+            startP.setLongitude((GlPointers.get(GlPointers.size() - 1).longitude));
+            endP.setLatitude(location.getLatitude());
+            endP.setLongitude(location.getLongitude());
         }
+        Log.i(TAG, "updateSpeed: " +startP.distanceTo(endP));
     }
 
     private boolean useMetricUnits() {
@@ -288,9 +295,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         fmt3.format(Locale.US, "%5.0f", LeanAngle);
         String strLeanAngle = fmt3.toString();
 
-        TV_LeanAngle.setText("Avg. speed: " + strLeanAngle + " km/h");
+        TV_LeanAngle.setText("Avg speed: " + strLeanAngle + " km/h");
 
-        Log.d("Main", "updateLean: " + LeanAngle);
+//        Log.d("Main", "updateLean: " + LeanAngle);
     }
 
 
@@ -298,10 +305,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
 
 
-    private double pitch, tilt, azimuth;
+
     float[] mGravity;
     float[] mGeomagnetic;
-    float azimut = 0;
+    float azimuth = 0;
 
     public void onSensorChanged(SensorEvent event) {
 //        if (event.sensor == mAccelerometer) {
@@ -350,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             if (success) {
                 float orientation[] = new float[3];
                 SensorManager.getOrientation(R, orientation);
-                azimut = orientation[1]; // orientation contains: azimut, pitch and roll
+                azimuth = orientation[1]; // orientation contains: azimut, pitch and roll
             }
         }
 
@@ -363,9 +370,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 //        int iLeanAngle = (int) (event.values[0] *9);
 //        int iLeanAngle = (int) (mOrientation[0]*57.2957768);
 
-        int iLeanAngle = (int) (azimut *57.2957768)+90;
+        int iLeanAngle = (int) (azimuth *57.2957768)+90;
 
-        Log.d("Main", "updateLean: " +iLeanAngle);
+//        Log.d("Main", "updateLean: " +iLeanAngle);
 
         // *57.2957768
 
@@ -421,10 +428,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         super.onSaveInstanceState(outState);
         outState.putFloat("float_value", TopSpeed);
         outState.putString("string_value", strAverage);
-        outState.putInt("int_value", Num);
-        Log.i("Save", "Speed: " + TopSpeed);
-
-
     }
 
     @Override
@@ -432,16 +435,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         super.onRestoreInstanceState(savedInstanceState);
         TopSpeed = savedInstanceState.getFloat("float_value");
         strAverage = savedInstanceState.getString("string_value");
-        Num = savedInstanceState.getInt("int_value");
-        Log.i("Save", "Avg: " + strAverage);
 
         TV_TopSpeed.setText("Top speed: " + TopSpeed + " km/h");
 
 
         if (strAverage == null) {
-            TV_AvgSpeed.setText("Avg. speed: " + "0" + " km/h");
+            TV_AvgSpeed.setText("Avg speed: " + "0" + " km/h");
         } else {
-            TV_AvgSpeed.setText("Avg. speed: " + strAverage + " km/h");
+            TV_AvgSpeed.setText("Avg speed: " + strAverage + " km/h");
         }
 
     }
