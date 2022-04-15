@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
 
 
-    private int mAzimuth = 0; // degree
 
     Switch switch_metric;
     TextView TV_speed;
@@ -128,7 +127,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             doStuff();
         }
 
-        //this.updateSpeed(null);
 
         switch_metric.setOnCheckedChangeListener((buttonView, isChecked) -> MainActivity.this.updateSpeed(null));
 
@@ -147,8 +145,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     public void onClick(View v) {
         if (v == button1) {
-            TopSpeed++;
-            TV_LeanAngle.setText("Num: " + TopSpeed);
+
+            TopSpeed = 0;
+            AvgSpeedList.clear();
+            MaxLeanL = 0;
+            MaxLeanR = 0;
         }
         if (v == button2) {
             Intent intent = new Intent(MainActivity.this, Map.class);
@@ -279,31 +280,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             endP.setLatitude(location.getLatitude());
             endP.setLongitude(location.getLongitude());
         }
-        Log.i(TAG, "updateSpeed: " +startP.distanceTo(endP));
+//        Log.i(TAG, "updateSpeed: " +startP.distanceTo(endP));
     }
 
     private boolean useMetricUnits() {
         return switch_metric.isChecked();
     }
-
-    private void updateLean() {
-
-
-        LeanAngle = SensorManager.AXIS_X;
-
-        Formatter fmt3 = new Formatter(new StringBuilder());
-        fmt3.format(Locale.US, "%5.0f", LeanAngle);
-        String strLeanAngle = fmt3.toString();
-
-        TV_LeanAngle.setText("Avg speed: " + strLeanAngle + " km/h");
-
-//        Log.d("Main", "updateLean: " + LeanAngle);
-    }
-
-
-
-
-
 
 
     float[] mGravity;
@@ -311,40 +293,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     float azimuth = 0;
 
     public void onSensorChanged(SensorEvent event) {
-//        if (event.sensor == mAccelerometer) {
-//            System.arraycopy(event.values, 0, mLastAccelerometer, 0, event.values.length);
-//            mLastAccelerometerSet = true;
-//        } else if (event.sensor == mMagnetometer) {
-//            System.arraycopy(event.values, 0, mLastMagnetometer, 0, event.values.length);
-//            mLastMagnetometerSet = true;
-//        }
-//        if (mLastAccelerometerSet && mLastMagnetometerSet) {
-//            SensorManager.getRotationMatrix(mR, null, mLastAccelerometer, mLastMagnetometer);
-//            SensorManager.getOrientation(mR, mOrientation);
-////            Log.i("OrientationTestActivity", String.format("Orientation: %f, %f, %f",
-////                    mOrientation[0], mOrientation[1], mOrientation[2]));
-//        }
-
-//        float[] gData = new float[3]; // accelerometer
-//        float[] mData = new float[3]; // magnetometer
-//        float[] rMat = new float[9];
-//        float[] iMat = new float[9];
-//        float[] orientation = new float[3];
-//        switch ( event.sensor.getType() ) {
-//            case Sensor.TYPE_ACCELEROMETER:
-//                gData = event.values.clone();
-//                break;
-//            case Sensor.TYPE_MAGNETIC_FIELD:
-//                mData = event.values.clone();
-//                break;
-//            default: return;
-//        }
-//
-//        if ( SensorManager.getRotationMatrix( rMat, iMat, gData, mData ) ) {
-//            mAzimuth= (int) ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360;
-//        }
-
-
 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
             mGravity = event.values;
@@ -399,17 +347,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        sensorManager.unregisterListener(this);
-//    }
     protected void onResume() {
         super.onResume();
         mLastAccelerometerSet = false;

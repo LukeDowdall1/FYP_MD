@@ -120,23 +120,6 @@
         app:layout_constraintVertical_bias="0.172" />
 
     <TextView
-        android:id="@+id/TV_MaxLean"
-        android:layout_width="162dp"
-        android:layout_height="57dp"
-        android:text="Max Lean:"
-        android:textAlignment="textStart"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.01"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.924" />
-
-    <TextView
         android:id="@+id/TV_MaxLeanL"
         android:layout_width="162dp"
         android:layout_height="57dp"
@@ -148,10 +131,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintVertical_bias="0.895" />
 
     <TextView
         android:id="@+id/TV_MaxLeanR"
@@ -165,10 +148,27 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/TV_MaxLean"
+        android:layout_width="162dp"
+        android:layout_height="57dp"
+        android:text="Max Lean:"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.955" />
 
     <Button
         android:id="@+id/button1"
